@@ -1,0 +1,47 @@
+version: '3.1'
+
+services:
+  prodlist:
+    build: ./prodlist/
+    ports:
+      - "4040:8080"
+    depends_on:
+      - db
+    links:
+      - db
+      - proddiscount
+    networks: 
+      - backend        
+  
+  proddiscount:
+    build: ./proddiscount/
+    ports:
+      - "6000:6000"
+    depends_on:
+      - db
+    links:
+      - db
+    networks: 
+      - backend        
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    networks: 
+      - backend      
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9090:8080
+    depends_on:
+      - db
+    networks: 
+      - backend        
+
+networks:
+  backend:
+    driver: "bridge"
