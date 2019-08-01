@@ -66,7 +66,6 @@ lista de produtos.
 
 * Se o serviço de desconto (1) cair, o serviço de lista (2) tem que continuar funcionando e retornando a lista normalmente, só não vai aplicar os descontos.
 
-
 ## Requisitos
 
 * Go versao 1.6 ou superior
@@ -81,14 +80,29 @@ Execute o script de build:
 $ ./build-ubuntu.sh
 ```
 
-## Executando 
+## Banco de dados
+
+Execute:
+
+```
+sudo docker-compose up db
+sudo docker-compose up adminer
+```
+
+Eh possivel acessar o Postgresql utilizando o *adminer* em http://localhost:9090/
+
+Crie o banco de dados *hash_teste* e utilize o script  'data/hash_teste.sql' para inicia-lo.
+
+## Executando tudo
 
 Para rodar o sistema, use:
 ```
 sudo docker-compose up
 ```
-## Banco de dados
 
-Eh possivel acessar o banco de dados utilizando o *adminer* em http://localhost:9090/
+## Parando tudo
 
-Crie o banco de dados *hash_teste* e utilize o script  'data/hash_teste.sql' para inicia-lo.
+Para rodar o sistema, use:
+```
+sudo docker-compose down
+```

@@ -1,6 +1,3 @@
--- Adminer 4.7.2 PostgreSQL dump
-
-\connect "hash_teste";
 
 DROP TABLE IF EXISTS "product";
 CREATE TABLE "public"."product" (
@@ -39,4 +36,3 @@ INSERT INTO "user" ("id", "first_name", "last_name", "date_of_birth") VALUES
 ('2',	'Donald',	'Blake',	'1963-05-12'),
 ('3',	'Bruce',	'Banner',	'1964-12-13');
 
--- 2019-07-30 15:14:27.544223+00
